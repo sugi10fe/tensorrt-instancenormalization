@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  main:
+    image: nvcr.io/nvidia/pytorch:23.05-py3
+    ipc: host
+    stdin_open: true
+    tty: true
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities:
+                - gpu
